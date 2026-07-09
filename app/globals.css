@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #070a1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  color: #f8f4e8;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245, 210, 138, 0.13), transparent 18rem),
+    radial-gradient(circle at 72% 18%, rgba(139, 92, 246, 0.18), transparent 22rem),
+    radial-gradient(circle at 15% 72%, rgba(96, 165, 250, 0.12), transparent 20rem),
+    linear-gradient(155deg, #020613 0%, #080d22 44%, #130921 100%);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 22px rgba(245, 210, 138, 0.36));
+  }
+  50% {
+    transform: scale(1.045);
+    filter: drop-shadow(0 0 36px rgba(232, 121, 249, 0.45));
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 3.8s ease-in-out infinite;
+}
+
+.animate-floaty {
+  animation: floaty 5.5s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 240ms ease-out both;
+}
+
+.star {
+  animation: twinkle 2.8s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cosmic-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-card::before {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(245, 210, 138, 0.38) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 28%, rgba(232, 121, 249, 0.28) 0 1px, transparent 2px),
+    radial-gradient(circle at 58% 74%, rgba(96, 165, 250, 0.28) 0 1px, transparent 2px),
+    linear-gradient(110deg, transparent 0 38%, rgba(245, 210, 138, 0.08) 39%, transparent 40% 100%);
+  content: "";
+  inset: 0;
+  opacity: 0.7;
+  pointer-events: none;
+  position: absolute;
+}
+
+.cosmic-card > :not(.absolute) {
+  position: relative;
+}
+
+.cosmic-card > .absolute {
+  position: absolute;
+}
